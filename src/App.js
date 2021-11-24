@@ -19,9 +19,11 @@ import NewList from "./pages/newList/NewList";
 import MovieList from "./pages/movieList/MovieList";
 import Movie from "./pages/movie/Movie";
 import NewMovie from "./pages/newMovie/NewMovie";
+import env from "react-dotenv";
 
 function App() {
   const { user } = useContext(AuthContext);
+  console.log(env.REACT_APP_BASE_URL);
   return (
     <Router>
       <Switch>

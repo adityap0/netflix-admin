@@ -10,11 +10,13 @@ import {
   updateUserSuccess,
   updateUserFailure,
 } from "./UserActions";
+import env from "react-dotenv";
 
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
+  console.log(env.REACT_APP_BASE_URL +"users");
   try {
-    const res = await axios.get("/users", {
+    const res = await axios.get(env.REACT_APP_BASE_URL +"users", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

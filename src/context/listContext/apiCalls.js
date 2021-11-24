@@ -10,11 +10,12 @@ import {
   getListsStart,
   getListsSuccess,
 } from "./ListActions";
+import env from "react-dotenv";
 
 export const getLists = async (dispatch) => {
   dispatch(getListsStart());
   try {
-    const res = await axios.get("/lists", {
+    const res = await axios.get(env.REACT_APP_BASE_URL + "lists", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

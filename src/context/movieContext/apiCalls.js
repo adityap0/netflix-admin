@@ -13,11 +13,12 @@ import {
   updateMovieSuccess,
   updateMovieFailure,
 } from "./MovieActions";
+import env from "react-dotenv";
 
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   try {
-    const res = await axios.get("/movies", {
+    const res = await axios.get(env.REACT_APP_BASE_URL +"movies", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
